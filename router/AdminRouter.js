@@ -5,4 +5,4 @@ const {getallclients,getsingleclient,vis} = require('../controller/AdminControll
 router.get("/getclients",getallclients)
 router.get("/single/:id",getsingleclient)
 
-module.exports = router
+module.exports = router 
