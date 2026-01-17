@@ -7,6 +7,6 @@ router.get("/getclients",verifyToken,getallclients)
 router.get("/single/:id",verifyToken,getsingleclient)
 router.get("/delete/:id",verifyToken,delsingleclient)
 router.post("/reg",reg)
-router.get("/login",login)
+router.post("/login",login)
 
 module.exports = router 
