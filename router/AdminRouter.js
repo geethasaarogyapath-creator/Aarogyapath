@@ -1,8 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const {getallclients,getsingleclient,vis} = require('../controller/AdminController')
+const verifyToken = require('../middleware/verifyToken')
+const {getallclients,getsingleclient,delsingleclient,reg,login} = require('../controller/AdminController')
 
-router.get("/getclients",getallclients)
-router.get("/single/:id",getsingleclient)
+router.get("/getclients",verifyToken,getallclients)
+router.get("/single/:id",verifyToken,getsingleclient)
+router.get("/delete/:id",verifyToken,delsingleclient)
+router.post("/reg",reg)
+router.get("/login",login)
 
 module.exports = router 
