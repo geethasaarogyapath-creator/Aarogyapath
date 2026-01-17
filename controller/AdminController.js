@@ -99,17 +99,17 @@ const login = async (req, res) => {
         const { name, password } = req.body
 
         if (!name || !password) {
-            return res.status(400).json("All fields are required")
+            return res.status(400).json({"mssg":"Invalid Username or Password"})
         }
 
         const admin1 = await Admin.findOne({ name })
         if (!admin1) {
-            return res.status(401).json("Invalid Username or Password")
+            return res.status(401).json({"mssg":"Invalid Username or Password"})
         }
 
         const isMatch = await bcrypt.compare(password, admin1.password)
         if (!isMatch) {
-            return res.status(401).json("Invalid Username or Password")
+            return res.status(401).json({"mssg":"Invalid Username or Password"})
         }
 
         const secretkey = process.env.JWT_SECRET
@@ -125,7 +125,7 @@ const login = async (req, res) => {
 
     } catch (error) {
         console.log(error)
-        res.status(500).json("Internal Server Error")
+        res.status(500).json({"mssg":"Internal Server Error"})
     }
 }
 
