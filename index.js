@@ -25,7 +25,7 @@ const allowedOrigins = [
   'http://localhost:5174',
   'https://aarogyapath-frontend-admin.vercel.app',
   'https://geethas-aarogyapath1.vercel.app',
-  'https://geethas-aarogyapath.vercel.app/'
+  'https://geethas-aarogyapath.vercel.app'
 ];
 
 app.use(cors({
