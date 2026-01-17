@@ -102,10 +102,10 @@ const login = async (req, res) => {
             return res.status(400).json({"mssg":"Invalid Username or Password"})
         }
 
-        const admin1 = await Admin.findOne({ name })
+        const admin1 = await Admin.findOne({ name:name })
         if (!admin1) {
             return res.status(401).json({"mssg":"Invalid Username or Password"})
-        }
+        } 
 
         const isMatch = await bcrypt.compare(password, admin1.password)
         if (!isMatch) {
