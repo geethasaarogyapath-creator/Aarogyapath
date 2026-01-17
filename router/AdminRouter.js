@@ -5,7 +5,7 @@ const {getallclients,getsingleclient,delsingleclient,reg,login} = require('../co
 
 router.get("/getclients",verifyToken,getallclients)
 router.get("/single/:id",verifyToken,getsingleclient)
-router.get("/delete/:id",verifyToken,delsingleclient)
+router.delete("/delete/:id",verifyToken,delsingleclient)
 router.post("/reg",reg)
 router.post("/login",login)
 
