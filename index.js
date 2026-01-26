@@ -5,6 +5,8 @@ const adminrouter = require('./router/AdminRouter')
 const app = express()
 const cors = require('cors')
 require('dotenv').config()
+const http = require("http");
+const { Server } = require("socket.io");
 
 
 app.use(express.json());
@@ -12,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use((req,res,next)=>{
     console.log(req.method,req.path);
+    req.io = io;
     next()
 })
 

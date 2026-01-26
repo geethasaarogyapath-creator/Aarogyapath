@@ -1,5 +1,7 @@
 const client = require('../models/Client')
 const express = require('express')
+const http = require("http");
+const { Server } = require("socket.io");
 
 const register = async (req,res) => {
     try {
@@ -21,6 +23,7 @@ const register = async (req,res) => {
                 isvisited
             })
             const user = await c.save()
+            req.io.emit("clientUpdated")
             res.status(200).json("Registered Successfully")
         }
     } catch (error) {
