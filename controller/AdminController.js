@@ -63,8 +63,7 @@ const delsingleclient = async (req, res) => {
     }
 }
 
-// Admin Register
-// const reg = async (req, res) => {
+const reg = async (req, res) => {
 //     try {
 //         const { name, email, password } = req.body
 
@@ -92,7 +91,7 @@ const delsingleclient = async (req, res) => {
 //         console.log(error)
 //         res.status(500).json("Internal Server Error")
 //     }
-// }
+}
 
 const login = async (req, res) => {
     try {
