@@ -64,35 +64,35 @@ const delsingleclient = async (req, res) => {
 }
 
 // Admin Register
-const reg = async (req, res) => {
-    try {
-        const { name, email, password } = req.body
+// const reg = async (req, res) => {
+//     try {
+//         const { name, email, password } = req.body
 
-        if (!name || !email || !password) {
-            return res.status(400).json("All fields are required")
-        }
+//         if (!name || !email || !password) {
+//             return res.status(400).json("All fields are required")
+//         }
 
-        const existingAdmin = await Admin.findOne({ email })
-        if (existingAdmin) {
-            return res.status(409).json("Email already exists")
-        }
+//         const existingAdmin = await Admin.findOne({ email })
+//         if (existingAdmin) {
+//             return res.status(409).json("Email already exists")
+//         }
 
-        const hashedPassword = await bcrypt.hash(password, 10)
+//         const hashedPassword = await bcrypt.hash(password, 10)
 
-        const admin1 = new Admin({
-            name,
-            email,
-            password: hashedPassword
-        })
+//         const admin1 = new Admin({
+//             name,
+//             email,
+//             password: hashedPassword
+//         })
 
-        await admin1.save()
-        res.status(201).json("Registered successfully")
+//         await admin1.save()
+//         res.status(201).json("Registered successfully")
 
-    } catch (error) {
-        console.log(error)
-        res.status(500).json("Internal Server Error")
-    }
-}
+//     } catch (error) {
+//         console.log(error)
+//         res.status(500).json("Internal Server Error")
+//     }
+// }
 
 const login = async (req, res) => {
     try {
